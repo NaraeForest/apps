@@ -1,3 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: frontend-cert
+  namespace: frontend
+spec:
+  secretName: letsencrypt
+  dnsNames:
+  - 05-project.narumir.io
+  - www.05-project.narumir.io
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -29,7 +43,7 @@ spec:
         path: /
         pathType: Prefix
   tls:
-    - hosts:
-        - 05-project.narumir.io
-        - www.05-project.narumir.io
-      secretName: letsencrypt
+  - hosts:
+    - 05-project.narumir.io
+    - www.05-project.narumir.io
+    secretName: letsencrypt
