@@ -21,7 +21,7 @@ spec:
         app: front-deploy
     spec:
       containers:
-      - image: ghcr.io/05-project/05-project-client
+      - image: ghcr.io/05-project/05-project-client:20241126-31339cb
         name: frontend-app
         port:
         - containerPort: 3000

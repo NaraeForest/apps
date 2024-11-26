@@ -21,7 +21,7 @@ spec:
         app: back-deploy
     spec:
       containers:
-      - image: ghcr.io/05-project/05-project-server
+      - image: ghcr.io/05-project/05-project-server:20241126-f5e207f
         name: backend-app
         port:
         - containerPort: 4000
