@@ -4,7 +4,7 @@ metadata:
   name: backend-config
   namespace: default
 data:
-  LOKI_HOST: "http://127.0.0.1:8080"
+  LOKI_HOST: "http://<loki-service-name>.<namespace>.svc.cluster.local:<port>"
   NAVER_CLIENT_ID: "D1sa9szPKoZZ87nZeCiP"
   KAKAO_CLIENT_ID: "d702fab7a1e36e8bc5959c1faac17b11"
   KAKAO_REDIRECT_URL: "https://api.05-project.narumir.io/api/v1/auth/kakao/callback"
