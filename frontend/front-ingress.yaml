@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: front-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: www.05-project.narumir.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: frontend
+            port:
+              number: 443
+        path: /
+        pathType: Prefix
+  tls:
+    - hosts:
+        - www.05-project.narumir.io
+      secretName: letsencrypt

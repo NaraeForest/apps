@@ -23,5 +23,12 @@ spec:
       containers:
       - image: ghcr.io/05-project/05-project-client:20241126-31339cb
         name: frontend-app
+        resources:
+          requests:
+            cpu: 500m
+            memory: 500Mi
+          limits:
+            CPU: 1000m
+            memory: 1Gi
         port:
         - containerPort: 3000
