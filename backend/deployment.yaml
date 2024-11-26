@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: default
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  minReadySeconds: 20
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: ghcr.io/05-project/05-project-server:20241126-f5e207f 
+        ports:
+        - containerPort: 4000           
+        envFrom:
+        - configMapRef:
+            name: backend-config        
+        - secretRef:
+            name: backend-secret        
+        env:
+        - name: POD_NAME                
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE           
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        resources:
+          limits:
+            memory: "1Gi"              
+            cpu: "1000m"               
+          requests:
+            memory: "512Mi"            
+            cpu: "500m"                
