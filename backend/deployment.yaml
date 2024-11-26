@@ -21,27 +21,27 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ghcr.io/05-project/05-project-server:20241126-f5e207f 
+        image: ghcr.io/05-project/05-project-server:20241126-f5e207f
         ports:
-        - containerPort: 4000           
+        - containerPort: 4000
         envFrom:
         - configMapRef:
-            name: backend-config        
+            name: backend-config
         - secretRef:
-            name: backend-secret        
+            name: backend-secret
         env:
-        - name: POD_NAME                
+        - name: POD_NAME
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        - name: POD_NAMESPACE           
+        - name: POD_NAMESPACE
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
         resources:
           limits:
-            memory: "1Gi"              
-            cpu: "1000m"               
+            memory: "1Gi"
+            cpu: "1000m"
           requests:
-            memory: "512Mi"            
-            cpu: "500m"                
+            memory: "512Mi"
+            cpu: "500m"
