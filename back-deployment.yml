@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-deploy
+  labels:
+    app: back-deploy
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavilable: 1
+      maxSurge: 1
+  minReadySeconds: 20
+  replicas: 3
+  selector:
+    matchLabels:
+      app: back-deploy
+  template:
+    metadata:
+      labels:
+        app: back-deploy
+    spec:
+      containers:
+      - image: ghcr.io/05-project/05-project-server
+        name: backend-app
+        port:
+        - containerPort: 8080
