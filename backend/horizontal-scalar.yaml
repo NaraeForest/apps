@@ -2,13 +2,13 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: backend-hpa
-  namespace: default
+  namespace: backend
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: backend                   
-  minReplicas: 2                    
+  minReplicas: 3                    
   maxReplicas: 20                   
   metrics:
   - type: Resource
@@ -22,11 +22,11 @@ spec:
       policies:
       - type: Pods
         value: 1                   
-        periodSeconds: 60          
-      stabilizationWindowSeconds: 300 
+        periodSeconds: 30          
+      stabilizationWindowSeconds: 120
     scaleUp:
       policies:
       - type: Pods
-        value: 2                   
+        value: 1                   
         periodSeconds: 30          
-      stabilizationWindowSeconds: 300 
+      stabilizationWindowSeconds: 120
