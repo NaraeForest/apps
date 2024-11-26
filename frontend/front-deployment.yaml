@@ -9,7 +9,7 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavilable: 1
+      maxUnavailable: 1
       maxSurge: 1
   minReadySeconds: 20
   replicas: 3
@@ -31,5 +31,5 @@ spec:
           limits:
             CPU: 1000m
             memory: 1Gi
-        port:
+        ports:
         - containerPort: 3000
