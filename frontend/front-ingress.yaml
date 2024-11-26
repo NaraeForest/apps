@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: front-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: 05-project.narumir.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: frontend
+            port:
+              number: 3000
+        path: /
+        pathType: Prefix
+  - host: www.05-project.narumir.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: frontend
+            port:
+              number: 3000
+        path: /
+        pathType: Prefix
+  tls:
+    - hosts:
+        - 05-project.narumir.io
+        - www.05-project.narumir.io
+      secretName: letsencrypt
