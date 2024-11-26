@@ -5,17 +5,17 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: www.05-project.narumir.io
+  - host: 05-project.narumir.io
     http:
       paths:
       - backend:
           service:
             name: frontend
             port:
-              number: 443
+              number: 3000
         path: /
         pathType: Prefix
   tls:
     - hosts:
-        - www.05-project.narumir.io
+        - 05-project.narumir.io
       secretName: letsencrypt
