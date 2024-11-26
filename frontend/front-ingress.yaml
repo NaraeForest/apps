@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: front-ingress
+  namespace: frontend
   annotations:
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
