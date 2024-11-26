@@ -24,4 +24,4 @@ spec:
       - image: ghcr.io/05-project/05-project-client
         name: frontend-app
         port:
-        - containerPort: 8080
+        - containerPort: 3000
