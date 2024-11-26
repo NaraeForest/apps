@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: back-deploy
+  name: backend
   labels:
-    app: back-deploy
+    app: backend
 spec:
   strategy:
     type: RollingUpdate
@@ -14,14 +14,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: back-deploy
+      app: backend
   template:
     metadata:
       labels:
-        app: back-deploy
+        app: backend
     spec:
       containers:
-      - image: ghcr.io/05-project/05-project-server
+      - image: ghcr.io/05-project/05-project-server:20241126-f5e207f
         name: backend-app
         port:
         - containerPort: 4000

@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: front-deploy
+  name: frontend
   labels:
-    app: front-deploy
+    app: frontend
 spec:
   strategy:
     type: RollingUpdate
@@ -14,14 +14,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: front-deploy
+      app: frontend
   template:
     metadata:
       labels:
-        app: front-deploy
+        app: frontend
     spec:
       containers:
-      - image: ghcr.io/05-project/05-project-client
+      - image: ghcr.io/05-project/05-project-client:20241126-31339cb
         name: frontend-app
         port:
         - containerPort: 3000
