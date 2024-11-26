@@ -1,0 +1,6 @@
+resources:
+  - front-config.yaml
+  - front-deployment.yaml
+  - front-hpa.yaml
+  - front-ingress.yaml
+  - service.yaml
