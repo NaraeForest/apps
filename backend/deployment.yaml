@@ -32,9 +32,9 @@ spec:
         - configMapRef:
             name: backend-config
         - secretRef:
-            - name: backend-secret
+            name: backend-secret
         - secretRef:
-            - name: db-cert-secret
+            name: db-cert-secret
         env:
         - name: POD_NAME
           valueFrom:
