@@ -20,34 +20,40 @@ spec:
         app: backend
     spec:
       containers:
-      - name: backend
-        image: ghcr.io/05-project/05-project-server:20241127-626cab2
-        ports:
-        - containerPort: 4000
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 4000
-        envFrom:
-        - configMapRef:
-            name: backend-config
-        - secretRef:
-            name: backend-secret
-        - secretRef:
-            name: db-cert-secret
-        env:
-        - name: POD_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
-        - name: POD_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        resources:
-          limits:
-            memory: "1Gi"
-            cpu: "1000m"
-          requests:
-            memory: "512Mi"
-            cpu: "500m"
+        - name: backend
+          image: ghcr.io/05-project/05-project-server:20241127-87d7832
+          ports:
+            - containerPort: 4000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+          envFrom:
+            - configMapRef:
+                name: backend-config
+            - secretRef:
+                name: backend-secret
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: rds-private-key
+              mountPath: /usr/src/app/certificates
+              readOnly: true
+      volumes:
+        - name: rds-private-key
+          secret:
+            secretName: db-cert-secret
