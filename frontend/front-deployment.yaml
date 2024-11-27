@@ -33,6 +33,3 @@ spec:
             memory: 1Gi
         ports:
         - containerPort: 3000
-        livenessProbe:
-          httpGet:
-            path: 05-project.narumir.io/health
