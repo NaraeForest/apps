@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: backend-config
-  namespace: default
+  namespace: backend
 data:
   LOKI_HOST: "http://loki-loki-distributed-gateway.loki"
   NAVER_CLIENT_ID: "D1sa9szPKoZZ87nZeCiP"
