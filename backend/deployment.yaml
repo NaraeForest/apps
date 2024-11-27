@@ -21,9 +21,13 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ghcr.io/05-project/05-project-server:20241126-f5e207f
+        image: ghcr.io/05-project/05-project-server:20241127-626cab2
         ports:
         - containerPort: 4000
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 4000
         envFrom:
         - configMapRef:
             name: backend-config
