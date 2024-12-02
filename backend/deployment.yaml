@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: ghcr.io/05-project/05-project-server:20241127-87d7832
+          image: ghcr.io/05-project/05-project-server:20241128-ba03dac
           ports:
             - containerPort: 4000
           livenessProbe:
