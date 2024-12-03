@@ -22,7 +22,7 @@ spec:
         app: frontend
     spec:
       containers:
-        - image: ghcr.io/05-project/05-project-client:20241202-78c30c7
+        - image: ghcr.io/05-project/05-project-client:20241202-7f0e112
           name: frontend-app
           resources:
             requests:
