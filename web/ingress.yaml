@@ -15,7 +15,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: narae-web
-  namespace: narae
+  namespace: narae-api
   labels:
     name: narae-web
   annotations:
