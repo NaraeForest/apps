@@ -4,7 +4,7 @@ metadata:
   name: api-cert
   namespace: narae-api
 spec:
-  secretName: letsencrypt
+  secretName: api-cert
   dnsNames:
     - api.narae.narumir.io
   issuerRef:
