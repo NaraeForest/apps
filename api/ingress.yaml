@@ -19,6 +19,7 @@ metadata:
   labels:
     name: narae-api
 spec:
+  ingressClassName: nginx
   rules:
     - host: api.narae.narumir.io
       http:
