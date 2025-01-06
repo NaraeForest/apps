@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: narae-api
-  namespace: narae
+  namespace: narae-api
 data:
   LOGIN_REDIRECT_URL: https://narae.narumir.io
   NAVER_CLIENT_ID: "D1sa9szPKoZZ87nZeCiP"

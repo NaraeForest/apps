@@ -2,13 +2,13 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: web-cert
-  namespace: narae
+  namespace: narae-web
 spec:
-  secretName: letsencrypt
+  secretName: web-cert
   dnsNames:
     - narae.narumir.io
   issuerRef:
-    name: web-cert
+    name: letsencrypt
     kind: ClusterIssuer
 ---
 apiVersion: networking.k8s.io/v1

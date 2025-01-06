@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: narae-web
-  namespace: narae
+  namespace: narae-web
 spec:
   selector:
     matchLabels:

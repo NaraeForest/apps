@@ -2,10 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: narae-web
-  namespace: narae
+  namespace: narae-web
 spec:
   selector:
     app: narae-web
   ports:
-  - port: 80
-    targetPort: 3000
+    - port: 80
+      targetPort: 3000
