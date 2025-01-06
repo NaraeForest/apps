@@ -1,0 +1,36 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: backend-cert
+  namespace: narae
+spec:
+  secretName: letsencrypt
+  dnsNames:
+    - api.narae.narumir.io
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: narae-api
+  namespace: narae
+  labels:
+    name: narae-api
+spec:
+  rules:
+    - host: api.narae.narumir.io
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: narae-api
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - api.narae.narumir.io
+      secretName: letsencrypt
