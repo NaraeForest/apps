@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: narae-api
-          image: ghcr.io/naraeforest/api:0.0.2
+          image: ghcr.io/naraeforest/api:0.0.3
           resources:
             limits:
               memory: "1Gi"
